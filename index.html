@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mohammed Zeeshan — Java Full-Stack Software Engineer portfolio." />
+  <meta name="theme-color" content="#0b0d12" />
+  <title>Mohammed Zeeshan — Java Full-Stack Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Zeeshan home">
+      <span class="brand-mark">Z</span>
+      <span>zeeshan<span class="muted">.dev</span></span>
+    </a>
+
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+
+    <nav class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#engineering">Engineering</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-resume" href="Mohammed-Zeeshan-Resume.pdf" download>Resume ↗</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> Open to opportunities</p>
+        <h1>Java Full-Stack<br /><span class="outline">Software Engineer.</span></h1>
+        <p class="hero-text">
+          I build reliable web applications and I'm currently deepening my
+          skills across Java, Spring Boot, Spring Security, JavaScript and modern
+          full-stack engineering.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#work">View selected work <span>↓</span></a>
+          <a class="button secondary" href="https://github.com/zeeshanverse" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+
+        <div class="quick-facts">
+          <span>Kanpur, India</span>
+          <span>CS & AI</span>
+          <span>DSA → Recursion</span>
+        </div>
+      </div>
+
+      <div class="hero-terminal">
+        <div class="terminal-bar">
+          <span></span><span></span><span></span>
+          <small>zeeshan@portfolio ~</small>
+        </div>
+        <div class="terminal-body">
+          <p><span class="green">const</span> engineer = {</p>
+          <p class="indent">name: <span class="string">"Mohammed Zeeshan"</span>,</p>
+          <p class="indent">focus: <span class="string">"Java Full-Stack"</span>,</p>
+          <p class="indent">backend: [<span class="string">"Java"</span>, <span class="string">"Spring Boot"</span>],</p>
+          <p class="indent">frontend: [<span class="string">"JavaScript"</span>, <span class="string">"React"</span>],</p>
+          <p class="indent">learning: [<span class="string">"Docker"</span>, <span class="string">"Microservices"</span>]</p>
+          <p>};<span class="cursor">_</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 / Selected work</p>
+          <h2>Things I've built.</h2>
+        </div>
+        <p class="section-note">A small collection of projects. More serious Java/Spring projects are coming as I build through the stack.</p>
+      </div>
+
+      <div class="projects">
+        <article class="project-card featured">
+          <div class="project-visual attendance">
+            <span class="visual-label">AI / COMPUTER VISION</span>
+            <div class="face-grid">
+              <div class="face-box"></div>
+              <div class="face-box small"></div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-topline">
+              <span>01</span>
+              <span>Final Year Project</span>
+            </div>
+            <h3>Smart Attendance System</h3>
+            <p>
+              A facial-recognition attendance system that detects and recognizes
+              faces in real time, records attendance with timestamps and stores
+              attendance data for management.
+            </p>
+            <div class="tags">
+              <span>Python</span><span>Flask</span><span>OpenCV</span><span>face_recognition</span><span>SQLite</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/zeeshanverse/smart-attendance-system.git" target="_blank" rel="noreferrer">GitHub ↗</a>
+              <a href="YOUR_LIVE_DEMO" target="_blank" rel="noreferrer"> Live demo ↗ </a>
+              <button class="case-study" data-project="attendance">Case study →</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual meal">
+            <span class="visual-label">FULL-STACK WEB APP</span>
+            <div class="meal-ui">
+              <span class="meal-icon">🍔</span>
+              <div><strong>MyMeal</strong><small>Order something good.</small></div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-topline">
+              <span>02</span>
+              <span>Web Application</span>
+            </div>
+            <h3>MyMeal</h3>
+            <p>
+              A food-ordering web application with menu browsing, cart management
+              and order placement, built with Flask and JavaScript.
+            </p>
+            <div class="tags">
+              <span>Flask</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/zeeshanverse/project-E-commerce-Website-MyMeal-.git" target="_blank" rel="noreferrer">GitHub ↗</a>
+              <a href="https://mymeal.onrender.com" target="_blank" rel="noreferrer">Live demo ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card coming">
+          <div class="project-visual spring">
+            <span class="visual-label">IN PROGRESS</span>
+            <div class="spring-code">
+              <span>@RestController</span>
+              <span>public class API {</span>
+              <span>&nbsp;&nbsp;...building</span>
+              <span>}</span>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-topline">
+              <span>03</span>
+              <span>Next build</span>
+            </div>
+            <h3>Spring Boot Project</h3>
+            <p>
+              A production-style Java backend project will be added here as I
+              progress through Spring Boot, Security, JPA and REST API design.
+            </p>
+            <div class="tags">
+              <span>Java</span><span>Spring Boot</span><span>REST</span><span>MySQL</span>
+            </div>
+            <div class="project-links">
+              <span class="building">Building now</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="engineering" class="section engineering">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">02 / Engineering</p>
+          <h2>What I'm building toward.</h2>
+        </div>
+        <p class="section-note">The stack below is deliberately honest: some are current strengths, others are active learning areas.</p>
+      </div>
+
+      <div class="stack-grid">
+        <div class="stack-card">
+          <span class="stack-number">01</span>
+          <h3>Languages</h3>
+          <p>Java · Python · C++ · SQL · JavaScript</p>
+        </div>
+        <div class="stack-card">
+          <span class="stack-number">02</span>
+          <h3>Backend</h3>
+          <p>Flask · Java · Spring · Spring Boot · REST APIs</p>
+        </div>
+        <div class="stack-card">
+          <span class="stack-number">03</span>
+          <h3>Frontend</h3>
+          <p>HTML5 · CSS3 · JavaScript · React</p>
+        </div>
+        <div class="stack-card">
+          <span class="stack-number">04</span>
+          <h3>Data</h3>
+          <p>MySQL · SQLite · DBMS · JPA/Hibernate — learning</p>
+        </div>
+        <div class="stack-card">
+          <span class="stack-number">05</span>
+          <h3>Dev Tools</h3>
+          <p>Git · GitHub · VS Code · IntelliJ IDEA · Docker — learning</p>
+        </div>
+        <div class="stack-card learning">
+          <span class="stack-number">06</span>
+          <h3>Currently learning</h3>
+          <p>Spring Security · Spring AI · Microservices · Docker · JavaScript ecosystem</p>
+        </div>
+      </div>
+
+      <div class="learning-strip">
+        <div>
+          <span class="eyebrow">Current roadmap</span>
+          <h3>DSA + Full-Stack + Projects</h3>
+        </div>
+        <div class="roadmap">
+          <span class="done">Java</span>
+          <i>→</i>
+          <span class="active">Spring Boot</span>
+          <i>→</i>
+          <span>Security</span>
+          <i>→</i>
+          <span>React</span>
+          <i>→</i>
+          <span>Docker</span>
+          <i>→</i>
+          <span>Microservices</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="about-label">
+        <p class="eyebrow">03 / About</p>
+        <div class="big-number">01</div>
+      </div>
+      <div class="about-copy">
+        <h2>I'm learning by building.</h2>
+        <p>
+          I'm a Computer Science & Engineering (AI) graduate focused on becoming
+          a Java Full-Stack Software Engineer. Right now I'm balancing job hunting
+          with deliberate learning: DSA through Striver's 450 Sheet and a
+          Java/Spring path covering Spring Boot, Spring Security, Spring AI,
+          Docker and Microservices.
+        </p>
+        <p>
+          I also want to become comfortable across the JavaScript ecosystem so I
+          can build complete products rather than only isolated backend services.
+          My portfolio will grow with that journey — each new project should show
+          a real engineering decision, not just another technology badge.
+        </p>
+        <div class="about-meta">
+          <div><span>Education</span><strong>B.Tech CSE (AI)</strong></div>
+          <div><span>Institute</span><strong>PSIT, Kanpur</strong></div>
+          <div><span>Focus</span><strong>Java Full-Stack</strong></div>
+          <div><span>Current DSA</span><strong>Recursion</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section profiles">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">04 / Proof of practice</p>
+          <h2>Code, solve, repeat.</h2>
+        </div>
+      </div>
+      <div class="profile-grid">
+        <a href="https://leetcode.com/u/LeetZeeshan/" target="_blank" rel="noreferrer"><span>LeetCode</span><strong>LeetZeeshan ↗</strong></a>
+        <a href="https://www.geeksforgeeks.org/profile/2k22csaie17t" target="_blank" rel="noreferrer"><span>GeeksForGeeks</span><strong>2k22csaie17 ↗</strong></a>
+        <a href="https://www.naukri.com/code360/profile/c_zeeshan" target="_blank" rel="noreferrer"><span>CodeStudio</span><strong>c_zeeshan ↗</strong></a>
+        <a href="https://www.hackerrank.com/profile/CSAI_1520107" target="_blank" rel="noreferrer"><span>HackerRank</span><strong>CSAI_1520107 ↗</strong></a>
+        <a href="https://www.codechef.com/users/zeeshanverse" target="_blank" rel="noreferrer"><span>CodeChef</span><strong>zeeshanverse ↗</strong></a>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <p class="eyebrow">05 / Contact</p>
+      <h2>Let's build something<br /><span>useful.</span></h2>
+      <p>I'm currently looking for software engineering opportunities and meaningful projects to work on.</p>
+      <div class="contact-actions">
+        <a class="button primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=mohammedzeeshan9577@gmail.com"">Email me ↗</a>
+        <a class="button secondary" href="https://www.linkedin.com/in/zeeshanmohd/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Mohammed Zeeshan</span>
+    <span>Built with HTML · CSS · JavaScript</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <dialog id="project-modal">
+    <button class="modal-close" aria-label="Close">×</button>
+    <p class="eyebrow">Case study</p>
+    <h2 id="modal-title">Smart Attendance System</h2>
+    <p id="modal-text"></p>
+    <div id="modal-tags" class="tags"></div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
