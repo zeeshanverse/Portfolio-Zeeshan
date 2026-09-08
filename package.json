@@ -14,7 +14,6 @@
     "db:seed": "pnpm --filter @portfolio/db db:seed",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky",
     "setup:smtp": "powershell -ExecutionPolicy Bypass -File ./scripts/setup-smtp.ps1"
   },
   "lint-staged": {
