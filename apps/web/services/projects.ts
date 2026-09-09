@@ -12,6 +12,8 @@ const FALLBACK_PROJECT_DETAILS: Record<string, ProjectDetailResponse> = {
 
 **Final Year Project** — ATTEND AI is a facial-recognition attendance management system developed to automate the process of identifying registered users and recording attendance without manual entry.
 
+Led a team of four as Project Lead, overseeing task allocation, feature integration, debugging, and final project delivery. Contributed to the core computer-vision pipeline and made key technical decisions while coordinating the integration of face recognition, Flask-based application logic, and SQLite data persistence.
+
 ### What it does
 - Detects faces from a live camera feed using OpenCV.
 - Recognizes registered faces using facial embeddings with face_recognition.
