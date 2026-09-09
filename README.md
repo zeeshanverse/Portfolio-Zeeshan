@@ -1,106 +1,72 @@
 # Mohammed Zeeshan — Developer Portfolio
 
-A terminal-inspired developer portfolio for **Mohammed Zeeshan**, focused on Java full-stack development, Spring Boot, REST APIs, SQL, and practical software engineering.
+A terminal-inspired personal portfolio for **Mohammed Zeeshan**, focused on Java full-stack development, Spring Boot, REST APIs, SQL and practical software engineering.
 
-The portfolio showcases projects, technical skills, coding profiles, development progress, and an AI-powered assistant with portfolio-specific context.
+## Included
 
-## ✨ Features
-
-- Terminal-inspired portfolio UI
-- Java, Spring Boot, REST API, SQL, and full-stack development roadmap
+- Terminal-style portfolio UI based on the original portfolio template
+- Java / Spring Boot / REST / SQL skills and learning roadmap
 - Featured projects with GitHub and live-demo links
-- Upcoming and currently-building projects
-- Resume PDF
-- GitHub, LinkedIn, LeetCode, GeeksForGeeks, Code360, HackerRank, CodeChef, and Codolio profiles
-- About, timeline, currently-building, and recommendations sections
-- Contact form with PostgreSQL persistence
-- Email notifications for contact submissions
-- Portfolio AI assistant with Zeeshan-specific context
-- General-purpose AI Q&A
+- Upcoming-projects roadmap clearly marked as planned
+- Resume PDF served from `/MohammedZeeshan__Resume.pdf`
+- GitHub, LinkedIn, LeetCode, GeeksForGeeks, Code360, HackerRank, CodeChef and Codolio links
+- About, timeline, currently-building and recommendations sections from the template
+- Contact form and direct email contact
+- Portfolio AI assistant with Zeeshan-specific context **and general-purpose Q&A**
 - PostgreSQL + Prisma-backed project/content data
 
-## 🛠️ Tech Stack
-
-### Frontend
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-
-### Backend
-- Node.js
-- Express
-- TypeScript
-- REST APIs
-
-### Database
-- PostgreSQL
-- Prisma
-
-### AI
-- OpenAI-compatible APIs
-- OpenAI
-- Local OpenAI-compatible LLM support
-- Rule-based offline fallback for common portfolio questions
-
-### Development
-- pnpm
-- Git & GitHub
-- Docker
-- Postman
-
-## 🚀 Projects
+## Projects
 
 ### Smart Attendance System
+Python, Flask, OpenCV, face_recognition, SQLite
 
-**Tech:** Python, Flask, OpenCV, face_recognition, SQLite
-
-- GitHub: [Smart Attendance System](https://github.com/zeeshanverse/smart-attendance-system)
-- Live Demo: [Try the Live Demo](https://smart-attendance-system-tvmk.onrender.com/api/auth/demo)
+- GitHub: https://github.com/zeeshanverse/smart-attendance-system
+- Live demo: https://smart-attendance-system-tvmk.onrender.com/api/auth/demo
 
 ### MyMeal
+Flask, JavaScript, HTML, CSS
 
-**Tech:** Flask, JavaScript, HTML, CSS
-
-- GitHub: [MyMeal](https://github.com/zeeshanverse/project-E-commerce-Website-MyMeal-)
-- Live Demo: [Try MyMeal](https://mymeal.onrender.com)
+- GitHub: https://github.com/zeeshanverse/project-E-commerce-Website-MyMeal-
+- Live demo: https://mymeal.onrender.com
 
 ### Banking System
+Java, Spring Boot, PostgreSQL, JPA, JDBC, JWT
 
-**Tech:** Java, Spring Boot, PostgreSQL, JPA, JDBC, JWT
+- GitHub: https://github.com/zeeshanverse/banking-system-springboot
 
-- GitHub: [Banking System](https://github.com/zeeshanverse/banking-system-springboot)
+## Local development
 
-### JobTrack
+From the repository root:
 
-**Tech:** HTML, CSS, JavaScript
+```powershell
+pnpm db:migrate
+pnpm db:generate
+pnpm dev
+```
 
-A job application tracking system currently under development.
+Then open `http://localhost:3000`.
 
-Planned features include:
+The root `.env` must contain a valid PostgreSQL connection and the API's LLM configuration. Never commit `.env` or real credentials.
 
-- Job application tracking
-- Company and role management
-- Application status tracking
-- Job URL storage
-- Statistics dashboard
-- Filtering and editing
-- React frontend
-- Spring Boot backend
+## Local development
 
-- GitHub: [JobTrack](https://github.com/zeeshanverse/job-tracker)
+From the `portfolio-main` directory:
 
-## 📁 Project Structure
+```powershell
+pnpm install
+Copy-Item .env.example .env
+pnpm db:generate
+pnpm db:migrate
+pnpm db:seed
+pnpm dev
+```
 
-```text
-portfolio-main/
-├── apps/
-│   ├── web/        # Next.js portfolio frontend
-│   └── api/        # Backend API
-├── packages/
-│   ├── db/         # Prisma schema, migrations and seed
-│   └── ...
-├── scripts/
-├── .env.example
-├── package.json
-└── pnpm-workspace.yaml
+The web app runs on `http://localhost:3000` and the API runs on `http://localhost:3001` in local development.
+
+### AI assistant
+
+The assistant supports both portfolio questions and general-purpose questions. It uses any OpenAI-compatible endpoint configured through `AI_BASE_URL`, `AI_API_KEY`, and `AI_MODEL`. For a hosted free-model setup, set `OPENROUTER_API_KEY`; the app then uses OpenRouter's `openrouter/free` router by default. If `OPENAI_API_KEY` is supplied instead, it uses OpenAI automatically. A local OpenAI-compatible LLM can be used through the `LLAMA_*` variables. Browser requests use the same-origin Next.js backend proxy, so Chat and Contact do not depend on cross-origin browser CORS.
+
+### Contact notifications
+
+The contact form stores submissions in PostgreSQL and can email the site owner plus an acknowledgement to the visitor. Local development can use Gmail SMTP with `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM`, and `CONTACT_TO`. On Render Free, use the HTTPS-based Resend API instead: configure `RESEND_API_KEY`, `RESEND_FROM`, and `CONTACT_TO`. Never commit `.env` or API keys.

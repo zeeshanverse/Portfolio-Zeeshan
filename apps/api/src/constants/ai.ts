@@ -2,21 +2,40 @@ import { createOpenAICompatible } from '@ai-sdk/openai-compatible'
 
 const explicitAIBaseUrl = Boolean(process.env.AI_BASE_URL)
 const useOpenAI = Boolean(process.env.OPENAI_API_KEY) && !explicitAIBaseUrl
-const configuredBaseUrl = process.env.AI_BASE_URL || (useOpenAI ? 'https://api.openai.com/v1' : process.env.LLAMA_BASE_URL)
-const configuredApiKey = process.env.AI_API_KEY || (useOpenAI ? process.env.OPENAI_API_KEY : process.env.LLAMA_API_KEY)
+const useOpenRouter = Boolean(process.env.OPENROUTER_API_KEY) && !explicitAIBaseUrl && !useOpenAI
 
-export const AI_BASE_URL = configuredBaseUrl ?? 'http://localhost:8080/v1'
+export const AI_BASE_URL =
+  process.env.AI_BASE_URL ||
+  (useOpenAI
+    ? 'https://api.openai.com/v1'
+    : useOpenRouter
+      ? 'https://openrouter.ai/api/v1'
+      : process.env.LLAMA_BASE_URL || 'http://localhost:8080/v1')
 
-export const AI_API_KEY = configuredApiKey
+export const AI_API_KEY =
+  process.env.AI_API_KEY ||
+  (useOpenAI ? process.env.OPENAI_API_KEY : undefined) ||
+  (useOpenRouter ? process.env.OPENROUTER_API_KEY : undefined) ||
+  process.env.LLAMA_API_KEY
 
 export const LLM_MODEL =
   process.env.AI_MODEL ||
-  (useOpenAI ? 'gpt-4o-mini' : process.env.LLM_MODEL || 'gemma-4-E2B-it-Q5_K_M.gguf')
+  (useOpenAI
+    ? 'gpt-4o-mini'
+    : useOpenRouter
+      ? 'openrouter/free'
+      : process.env.LLM_MODEL || 'gemma-4-E2B-it-Q5_K_M.gguf')
 
 export const llama = createOpenAICompatible({
   name: 'portfolio-ai',
   baseURL: AI_BASE_URL,
   apiKey: AI_API_KEY,
+  headers: useOpenRouter
+    ? {
+        'HTTP-Referer': process.env.NEXT_PUBLIC_API_URL_ORIGIN || 'https://zeeshan-portfolio-web.onrender.com',
+        'X-Title': 'Mohammed Zeeshan Portfolio',
+      }
+    : undefined,
 })
 
 export const SYSTEM_PROMPT = `You are the professional AI assistant embedded in Mohammed Zeeshan's developer portfolio.
@@ -57,7 +76,7 @@ CONVERSATION STYLE
 - Learning areas: Docker, Microservices, System Design, Spring AI
 
 # Completed projects
-1. Smart Attendance System — facial-recognition attendance application using Python, Flask, OpenCV, face_recognition and SQLite. Live demo: https://smart-attendance-system-tvmk.onrender.com/api/auth/demo. Repository: https://github.com/zeeshanverse/smart-attendance-system
+1. ATTEND AI (Smart Attendance System) — facial-recognition attendance application using Python, Flask, OpenCV, face_recognition and SQLite. Live demo: https://smart-attendance-system-tvmk.onrender.com/api/auth/demo. Repository: https://github.com/zeeshanverse/smart-attendance-system
 2. MyMeal — food-ordering web application with menu browsing, cart management and order placement using Flask and JavaScript. Live demo: https://mymeal.onrender.com. Repository: https://github.com/zeeshanverse/project-E-commerce-Website-MyMeal-
 3. Banking System — Java/Spring Boot backend banking application with JWT authentication, account management, deposits, withdrawals, transfers and transaction reporting using PostgreSQL, JPA and JDBC. Repository: https://github.com/zeeshanverse/banking-system-springboot
 
@@ -108,7 +127,7 @@ export function getOfflineAssistantResponse(prompt: string): string | null {
   }
 
   if (q.includes('smart attendance') || q.includes('attendance system')) {
-    return `The Smart Attendance System is a facial-recognition attendance application built with Python and Flask. It uses OpenCV and face_recognition for detection/recognition and SQLite for attendance records.`
+    return `ATTEND AI (Smart Attendance System) is a facial-recognition attendance application built with Python and Flask. It uses OpenCV and face_recognition for detection/recognition and SQLite for attendance records.`
   }
 
   if (q.includes('mymeal')) {
@@ -117,6 +136,38 @@ export function getOfflineAssistantResponse(prompt: string): string | null {
 
   if (q.includes('jobtrack') || q.includes('job track')) {
     return `JobTrack is currently in progress. The current version uses HTML, CSS and JavaScript and supports adding job applications, tracking companies/roles and statuses, storing job URLs, and viewing application statistics. React and Spring Boot are planned next.`
+  }
+
+  if (q === 'how are you' || q === 'how are you doing') {
+    return `I'm doing well and ready to help. You can ask me about Zeeshan, Java, Spring Boot, DSA, React, SQL, projects, interviews, or general technical topics.`
+  }
+
+  if (q === 'who are you' || q === 'what can you do' || q === 'what do you do') {
+    return `I'm Mohammed Zeeshan's portfolio assistant. I can answer questions about his projects and skills, and I can also help with programming, Java, Spring Boot, REST APIs, SQL, DSA, React, interviews, and general software-engineering questions.`
+  }
+
+  if (q === 'what is java') {
+    return `Java is a general-purpose, object-oriented programming language widely used for backend systems, enterprise applications and Android development. It runs on the JVM, which lets Java programs run across different operating systems.`
+  }
+
+  if (q === 'what is spring boot' || q === 'what is springboot') {
+    return `Spring Boot is a Java framework that makes it easier to build production-ready applications and REST APIs by providing sensible defaults, auto-configuration and embedded server support.`
+  }
+
+  if (q === 'what is sql') {
+    return `SQL is the language used to work with relational databases. You can use it to create tables and query, insert, update, and delete structured data.`
+  }
+
+  if (q === 'what is react') {
+    return `React is a JavaScript library for building user interfaces from reusable components. It is commonly used to build interactive frontend applications.`
+  }
+
+  if (q === 'what is dsa' || q === 'what is data structures and algorithms') {
+    return `DSA means Data Structures and Algorithms. Data structures organize data efficiently, while algorithms define steps for solving problems. Practicing DSA helps with problem solving and technical interviews.`
+  }
+
+  if (q === 'what is docker') {
+    return `Docker packages an application and its dependencies into containers so it can run consistently across different environments. It is especially useful for deployment and microservices.`
   }
 
   return null

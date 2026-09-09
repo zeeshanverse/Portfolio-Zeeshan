@@ -80,9 +80,12 @@ async function main() {
   const projects = [
     {
       slug: 'smart-attendance-system',
-      title: 'Smart Attendance System',
-      shortDescription: 'A facial-recognition attendance system that detects and recognizes faces in real time, records attendance with timestamps and stores attendance data for management.',
-      descriptionMd: '## Smart Attendance System\n\nA practical facial-recognition attendance management system built with Python and Flask. It uses OpenCV and face_recognition for face detection/recognition and SQLite for attendance records.\n\n### Links\n- [GitHub](https://github.com/zeeshanverse/smart-attendance-system)\n- [Live demo](https://smart-attendance-system-tvmk.onrender.com/api/auth/demo)',
+      title: 'ATTEND AI (Smart Attendance System)',
+      role: 'Final Year Project · Python / Flask / Computer Vision',
+      shortDescription: 'A final-year facial-recognition attendance system that detects and recognizes faces in real time, records timestamped attendance and keeps attendance data organized for management.',
+      descriptionMd: '## ATTEND AI (Smart Attendance System)\n\n**Final Year Project** — ATTEND AI is a facial-recognition attendance management system developed to automate the process of identifying registered users and recording attendance without manual entry.\n\n### What it does\n- Detects faces from a live camera feed using OpenCV.\n- Recognizes registered faces using facial embeddings with `face_recognition`.\n- Records attendance with the person\'s identity and timestamp.\n- Stores attendance records in SQLite for simple and reliable local persistence.\n- Provides a Flask-based web layer for authentication and attendance-related operations.\n\n### Technical implementation\nThe application combines Python, Flask, OpenCV, `face_recognition` and SQLite. The computer-vision pipeline handles face detection and recognition, while Flask exposes the application functionality and SQLite keeps the attendance data available for management and review.\n\n### Project outcome\nThe project demonstrates how computer vision can be applied to a practical administrative workflow, reducing repetitive manual attendance work while keeping a searchable record of attendance events.\n\n### Links\n- [GitHub](https://github.com/zeeshanverse/smart-attendance-system)\n- [Live demo](https://smart-attendance-system-tvmk.onrender.com/api/auth/demo)',
+      startedAt: new Date('2025-01-01'),
+      endedAt: new Date('2025-05-31'),
       featured: true, published: true, displayOrder: 0,
       liveUrl: 'https://smart-attendance-system-tvmk.onrender.com/api/auth/demo',
       repoUrl: 'https://github.com/zeeshanverse/smart-attendance-system',
@@ -96,8 +99,11 @@ async function main() {
     {
       slug: 'mymeal',
       title: 'MyMeal',
+      role: 'Web Application · Flask / JavaScript',
       shortDescription: 'A food-ordering web application with menu browsing, cart management and order placement, built with Flask and JavaScript.',
-      descriptionMd: '## MyMeal\n\nA practical food-ordering web application with menu browsing, cart management and order placement.\n\n### Links\n- [GitHub](https://github.com/zeeshanverse/project-E-commerce-Website-MyMeal-)\n- [Live demo](https://mymeal.onrender.com)',
+      descriptionMd: '## MyMeal\n\nMyMeal is a food-ordering web application designed around a simple end-to-end ordering flow. Users can browse the available menu, manage items in a cart and place orders through a browser-based interface.\n\n### What it does\n- Displays food items through a browsable menu.\n- Lets users add and manage items in a shopping cart.\n- Calculates the order flow from selected cart items.\n- Supports order placement through the web application.\n- Uses a Flask backend to handle application logic and JavaScript for client-side interaction.\n\n### Technical implementation\nThe project uses Flask for the backend and JavaScript, HTML and CSS for the web interface. The frontend handles user interaction such as menu browsing and cart management, while Flask provides the server-side application layer.\n\n### Project outcome\nMyMeal provided practical experience building a complete web application flow, connecting frontend interactions with backend functionality and designing an application around a real-world e-commerce-style use case.\n\n### Links\n- [GitHub](https://github.com/zeeshanverse/project-E-commerce-Website-MyMeal-)\n- [Live demo](https://mymeal.onrender.com)',
+      startedAt: new Date('2024-01-01'),
+      endedAt: new Date('2024-12-31'),
       featured: true, published: true, displayOrder: 1,
       liveUrl: 'https://mymeal.onrender.com',
       repoUrl: 'https://github.com/zeeshanverse/project-E-commerce-Website-MyMeal-',
@@ -109,8 +115,11 @@ async function main() {
     {
       slug: 'banking-system',
       title: 'Banking System',
+      role: 'Java / Spring Boot · REST API',
       shortDescription: 'A Java and Spring Boot backend banking application with JWT authentication, account management, transactions and PostgreSQL persistence.',
-      descriptionMd: '## Banking System\n\nA backend-focused banking system built with Java and Spring Boot. It includes JWT authentication, account management, deposits, withdrawals, money transfers and transaction reporting using PostgreSQL, JPA and JDBC.\n\n### Links\n- [GitHub](https://github.com/zeeshanverse/banking-system-springboot)',
+      descriptionMd: '## Banking System\n\nA backend-focused banking application built with Java and Spring Boot, designed around secure account operations and transaction management.\n\n### Core features\n- JWT-based authentication for protected API access.\n- Account creation and account management.\n- Deposits and withdrawals with transaction handling.\n- Money transfers between accounts.\n- Transaction history and reporting.\n- PostgreSQL persistence using JPA and JDBC.\n\n### Technical implementation\nThe backend is structured around Spring Boot REST APIs, with JWT used for authentication and authorization. PostgreSQL provides persistent storage, while JPA and JDBC handle database interaction. The project focuses on clean backend responsibilities, validation, secure request handling and reliable transaction workflows.\n\n### Project outcome\nThis project strengthened practical experience with Java backend development, REST API design, Spring Boot, authentication, relational databases and transaction-oriented application logic.\n\n### Repository\n- [GitHub](https://github.com/zeeshanverse/banking-system-springboot)',
+      startedAt: new Date('2026-01-01'),
+      endedAt: new Date('2026-08-31'),
       featured: true, published: true, displayOrder: 2,
       repoUrl: 'https://github.com/zeeshanverse/banking-system-springboot',
       projectTags: { create: [
@@ -126,7 +135,7 @@ async function main() {
       shortDescription: 'An in-progress job application tracker for recording companies, roles, application status, job URLs and application statistics.',
       tagline: 'Upcoming project · actively in progress',
       role: 'HTML / CSS / JavaScript',
-      descriptionMd: '## JobTrack\n\nJobTrack is an upcoming job application tracker currently in progress. The current version is built with HTML, CSS and JavaScript. It supports adding job applications, tracking companies and roles, tracking application status, storing job URLs and viewing application statistics.\n\nPlanned improvements include local storage, filtering, editing and deleting applications, followed by a React frontend and Spring Boot backend.\n\n### Repository\n- [GitHub](https://github.com/zeeshanverse/job-tracker)',
+      descriptionMd: '## JobTrack\n\nJobTrack is an in-progress job application tracker built to make an active job search easier to organize. Instead of keeping application details across notes or spreadsheets, the application brings company, role, status and job-link information into one place.\n\n### Current features\n- Add and record job applications.\n- Track the company and role for each application.\n- Track application status throughout the hiring process.\n- Store the original job URL for quick access.\n- View basic application statistics.\n\n### Current implementation\nThe current version uses HTML, CSS and JavaScript, keeping the first iteration lightweight and easy to use. The project is intentionally being developed incrementally, with the core application workflow being established before the larger stack upgrade.\n\n### Planned improvements\nThe roadmap includes local storage, filtering, editing and deleting applications, followed by a React frontend and a Spring Boot backend for a more scalable full-stack implementation.\n\n### Repository\n- [GitHub](https://github.com/zeeshanverse/job-tracker)',
       featured: false, published: true, displayOrder: 3,
       repoUrl: 'https://github.com/zeeshanverse/job-tracker',
       projectTags: { create: [
@@ -158,6 +167,8 @@ async function main() {
           featured: item.featured,
           published: item.published,
           displayOrder: item.displayOrder,
+          startedAt: item.startedAt,
+          endedAt: item.endedAt ?? null,
           liveUrl: item.liveUrl ?? null,
           repoUrl: item.repoUrl ?? null,
           projectTags: {

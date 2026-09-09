@@ -2,7 +2,7 @@ import type { NextFunction, Request, Response } from 'express'
 import { streamText } from 'ai'
 import { z } from 'zod'
 import type { LlmChatService } from '@api/services/llm-chat.service'
-import { GREETING_RESPONSES, getOfflineAssistantResponse, llama, LLM_MODEL, OFFLINE_MSG, SYSTEM_PROMPT } from '@api/constants/ai'
+import { AI_API_KEY, GREETING_RESPONSES, getOfflineAssistantResponse, llama, LLM_MODEL, OFFLINE_MSG, SYSTEM_PROMPT } from '@api/constants/ai'
 import {
   dropConsecutiveDuplicateRolesStartingWithUser,
   keepLastNMessagesStartingWithUser,
@@ -83,6 +83,23 @@ export class AskController {
           })
           res.setHeader('Content-Type', 'text/plain; charset=utf-8')
           res.write(offlineAnswer)
+          res.end()
+          return
+        }
+
+        if (!AI_API_KEY) {
+          const noModelAnswer =
+            "I can answer portfolio and common technical questions here. For broader general-AI questions, the hosted AI model needs to be configured."
+          void this.service.log({
+            sessionId,
+            prompt,
+            responseText: noModelAnswer,
+            durationMs: Date.now() - start,
+            model: 'no-ai-provider-configured',
+            ip: req.ip,
+          })
+          res.setHeader('Content-Type', 'text/plain; charset=utf-8')
+          res.write(noModelAnswer)
           res.end()
           return
         }

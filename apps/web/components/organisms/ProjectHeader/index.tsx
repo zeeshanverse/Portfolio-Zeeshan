@@ -3,7 +3,7 @@ import { formatProjectDate, type ProjectDetailResponse } from '@/services/projec
 
 const ProjectHeader = ({ project }: { project: ProjectDetailResponse }) => {
   const start = formatProjectDate(project.startedAt)
-  const end = project.endedAt ? formatProjectDate(project.endedAt) : 'ongoing'
+  const end = project.endedAt ? 'completed' : 'ongoing'
   const dateRange = start ? `${start} – ${end}` : null
 
   return (

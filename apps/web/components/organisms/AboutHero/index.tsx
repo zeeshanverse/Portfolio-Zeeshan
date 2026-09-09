@@ -7,7 +7,7 @@ const FACTS: { k: string; v: ReactNode }[] = [
   { k: 'name', v: 'Mohammed Zeeshan' },
   { k: 'role', v: 'Java Full-Stack Software Engineer' },
   { k: 'based in', v: <>India <span className="text-[var(--accent)]">// IST</span></> },
-  { k: 'focus', v: 'Java · Spring Boot · REST APIs · SQL' },
+  { k: 'focus', v: 'Java · Spring Boot · REST APIs · SQL · React' },
   {
     k: 'status',
     v: AVAILABILITY.open ? (

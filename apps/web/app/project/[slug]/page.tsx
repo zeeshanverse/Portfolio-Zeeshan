@@ -8,7 +8,8 @@ import MarkdownContent from '@/components/organisms/MarkdownContent'
 import PostFooter from '@/components/organisms/PostFooter'
 import { SITE_URL, SITE_AUTHOR } from '@/lib/site'
 
-export const revalidate = 60
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export async function generateStaticParams() {
   try {

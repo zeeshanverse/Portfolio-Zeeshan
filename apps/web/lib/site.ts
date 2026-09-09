@@ -4,7 +4,7 @@ export const SITE_URL = process.env.NEXT_PUBLIC_API_URL_ORIGIN ?? 'http://localh
 
 export const AVAILABILITY = {
   open: true,
-  label: 'open to roles & freelance',
+  label: 'Java Full-Stack Software Engineer',
   closedLabel: 'not taking on new work',
 }
 

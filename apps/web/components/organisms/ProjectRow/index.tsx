@@ -6,7 +6,7 @@ const ProjectRow = ({ project }: { project: ProjectDetailResponse }) => {
   const year = project.startedAt
     ? new Date(project.startedAt).getFullYear()
     : new Date(project.createdAt).getFullYear()
-  const endLabel = project.endedAt ? formatProjectDate(project.endedAt) : 'ongoing'
+  const endLabel = project.endedAt ? 'completed' : 'ongoing'
 
   return (
     <Link

@@ -40,6 +40,7 @@ import { RecommendationController } from './src/controllers/recommendation.contr
 import { AskController } from './src/controllers/ask.controller.js'
 import { MediaController } from './src/controllers/media.controller.js'
 import { NodemailerEmailService } from './src/adapters/nodemailer.email.js'
+import { ResendEmailService } from './src/adapters/resend.email.js'
 import { LocalDiskStorage } from './src/adapters/local-disk.storage.js'
 import { composeApp } from './src/container.js'
 
@@ -74,7 +75,7 @@ const recommendationAuthorRepository: IRecommendationAuthorRepository =
   new PrismaRecommendationAuthorRepository(prisma)
 const llmChatLogRepository = new PrismaLlmChatLogRepository(prisma)
 const mediaRepository: IMediaRepository = new PrismaMediaRepository(prisma)
-const emailService = new NodemailerEmailService()
+const emailService = process.env.RESEND_API_KEY ? new ResendEmailService() : new NodemailerEmailService()
 const storageService: IStorageService = createStorage()
 
 // Application services

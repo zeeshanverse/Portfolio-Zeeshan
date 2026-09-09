@@ -62,10 +62,8 @@ const Contact = () => {
           <div className="flex flex-col">
             {[
               { key: 'location', val: 'India · IST' },
-              { key: 'status', val: 'open to software opportunities', accent: true },
-              { key: 'stack', val: 'Java / Spring Boot / SQL / React' },
-              { key: 'github', val: '@zeeshanverse' },
-              { key: 'linkedin', val: 'zeeshanmohd' },
+              { key: 'status', val: 'Open to Software Engineering roles and Full Stack devloper roles', accent: true },
+              { key: 'stack', val: 'Java / Spring Boot / REST APIs / SQL / React' },
             ].map(({ key, val, accent }) => (
               <div
                 key={key}
@@ -77,6 +75,18 @@ const Contact = () => {
                 </span>
               </div>
             ))}
+            <div className="font-[family-name:var(--font-mono)] text-[13px] text-[var(--text-dim)]">
+              <span className="text-[var(--text-faint)] mr-2.5">github</span>
+              <a href={"https://github.com/zeeshanverse"} target="_blank" rel="noopener noreferrer" className="text-[var(--text-bright)] hover:text-[var(--accent)] transition-colors">
+                @zeeshanverse ↗
+              </a>
+            </div>
+            <div className="font-[family-name:var(--font-mono)] text-[13px] text-[var(--text-dim)]">
+              <span className="text-[var(--text-faint)] mr-2.5">linkedin</span>
+              <a href={"https://www.linkedin.com/in/zeeshanmohd/"} target="_blank" rel="noopener noreferrer" className="text-[var(--text-bright)] hover:text-[var(--accent)] transition-colors">
+                zeeshanmohd ↗
+              </a>
+            </div>
           </div>
           {calendlyUrl && (
             <div className="flex flex-col gap-1.5">

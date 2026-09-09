@@ -24,14 +24,14 @@ const HeroIntro = () => (
           hi, I&apos;m <span className="text-[var(--accent)]">Zeeshan</span>
         </>
       }
-      middle="Java Full-Stack Software Engineer | Spring Boot | Open to Opportunities"
+      middle="Java Full-Stack Software Engineer | Spring Boot | REST APIs | React"
       description={
         <>
           I build practical{' '}
           <em className="text-[var(--accent)] not-italic">Java and Spring Boot applications</em>,
           REST APIs, database-driven systems and full-stack projects. I&apos;m currently focused on
           strengthening my <em className="text-[var(--accent)] not-italic">DSA and backend engineering</em>{' '}
-          skills while expanding into React, Docker and microservices.
+          skills while building deeper React, Docker and microservices experience.
         </>
       }
     />

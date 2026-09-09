@@ -31,7 +31,13 @@ export function composeApp(controllers: Controllers): Express {
   const corsOrigin =
     process.env.NODE_ENV !== 'production'
       ? /^https?:\/\/(localhost|(\d{1,3}\.){3}\d{1,3})(:\d+)?$/
-      : process.env.CORS_ORIGIN
+      : (() => {
+          const allowed = (process.env.CORS_ORIGIN ?? '')
+            .split(',')
+            .map((origin) => origin.trim())
+            .filter(Boolean)
+          return allowed.length ? allowed : false
+        })()
 
   if (corsOrigin) {
     app.use(cors({ origin: corsOrigin, credentials: true }))
