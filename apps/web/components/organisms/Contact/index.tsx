@@ -25,18 +25,25 @@ const Contact = () => {
     e.preventDefault()
     setLoading(true)
     setError(null)
+
     const form = e.currentTarget
+
     try {
       await submitContact({
         name: (form.elements.namedItem('name') as HTMLInputElement).value,
         email: (form.elements.namedItem('email') as HTMLInputElement).value,
         message: (form.elements.namedItem('msg') as HTMLTextAreaElement).value,
       })
+
       setSent(true)
     } catch (err) {
       const rawKey = err instanceof Error ? err.message : 'server'
+
       const key =
-        rawKey === 'Failed to fetch' || rawKey.includes('NetworkError') ? 'network' : rawKey
+        rawKey === 'Failed to fetch' || rawKey.includes('NetworkError')
+          ? 'network'
+          : rawKey
+
       setError(ERROR_MESSAGES[key] ?? ERROR_MESSAGES.server)
     } finally {
       setLoading(false)
@@ -57,42 +64,79 @@ const Contact = () => {
           </>
         }
       />
+
       <div className="grid grid-cols-[1fr_1.1fr] gap-8 max-[940px]:grid-cols-1">
         <div className="flex flex-col gap-7">
           <div className="flex flex-col">
             {[
               { key: 'location', val: 'India · IST' },
-              { key: 'status', val: 'Open to Software Engineering roles and Full Stack devloper roles', accent: true },
-              { key: 'stack', val: 'Java / Spring Boot / REST APIs / SQL / React' },
+              {
+                key: 'status',
+                val: 'Open to Software Engineering roles and Full Stack devloper roles',
+                accent: true,
+              },
+              {
+                key: 'stack',
+                val: 'Java / Spring Boot / REST APIs / SQL / React',
+              },
             ].map(({ key, val, accent }) => (
               <div
                 key={key}
                 className="font-[family-name:var(--font-mono)] text-[13px] text-[var(--text-dim)]"
               >
-                <span className="text-[var(--text-faint)] mr-2.5">{key}</span>
-                <span className={accent ? 'text-[var(--accent)]' : 'text-[var(--text-bright)]'}>
+                <span className="text-[var(--text-faint)] mr-2.5">
+                  {key}
+                </span>
+
+                <span
+                  className={
+                    accent
+                      ? 'text-[var(--accent)]'
+                      : 'text-[var(--text-bright)]'
+                  }
+                >
                   {val}
                 </span>
               </div>
             ))}
+
             <div className="font-[family-name:var(--font-mono)] text-[13px] text-[var(--text-dim)]">
-              <span className="text-[var(--text-faint)] mr-2.5">github</span>
-              <a href={"https://github.com/zeeshanverse"} target="_blank" rel="noopener noreferrer" className="text-[var(--text-bright)] hover:text-[var(--accent)] transition-colors">
+              <span className="text-[var(--text-faint)] mr-2.5">
+                github
+              </span>
+
+              <a
+                href="https://github.com/zeeshanverse"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--text-bright)] hover:text-[var(--accent)] transition-colors"
+              >
                 @zeeshanverse ↗
               </a>
             </div>
+
             <div className="font-[family-name:var(--font-mono)] text-[13px] text-[var(--text-dim)]">
-              <span className="text-[var(--text-faint)] mr-2.5">linkedin</span>
-              <a href={"https://www.linkedin.com/in/zeeshanmohd/"} target="_blank" rel="noopener noreferrer" className="text-[var(--text-bright)] hover:text-[var(--accent)] transition-colors">
+              <span className="text-[var(--text-faint)] mr-2.5">
+                linkedin
+              </span>
+
+              <a
+                href="https://www.linkedin.com/in/zeeshanmohd/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--text-bright)] hover:text-[var(--accent)] transition-colors"
+              >
                 zeeshanmohd ↗
               </a>
             </div>
           </div>
+
           {calendlyUrl && (
             <div className="flex flex-col gap-1.5">
               <span className="font-[family-name:var(--font-mono)] text-[11px] text-[var(--text-faint)] tracking-[0.04em]">
                 prefer a call?
               </span>
+
               <Button
                 as={Link}
                 href={calendlyUrl}
@@ -115,18 +159,34 @@ const Contact = () => {
             <Input.Label htmlFor="name" required>
               NAME
             </Input.Label>
-            <Input.Text id="name" name="name" required disabled={sent} />
+
+            <Input.Text
+              id="name"
+              name="name"
+              required
+              disabled={sent}
+            />
           </Input.Field>
+
           <Input.Field>
             <Input.Label htmlFor="email" required>
               EMAIL
             </Input.Label>
-            <Input.Text id="email" name="email" type="email" required disabled={sent} />
+
+            <Input.Text
+              id="email"
+              name="email"
+              type="email"
+              required
+              disabled={sent}
+            />
           </Input.Field>
+
           <Input.Field>
             <Input.Label htmlFor="msg" required>
               MESSAGE
             </Input.Label>
+
             <Input.Textarea
               id="msg"
               name="msg"
@@ -137,19 +197,28 @@ const Contact = () => {
               disabled={sent}
             />
           </Input.Field>
+
           <div className="flex items-center justify-between pt-1.5">
             <span className="font-[family-name:var(--font-mono)] text-[11px] text-[var(--text-faint)]">
               protected · rate-limited
             </span>
-            <Button as="button" type="submit" variant="primary" disabled={sent || loading}>
+
+            <Button
+              as="button"
+              type="submit"
+              variant="primary"
+              disabled={sent || loading}
+            >
               {loading ? 'sending…' : 'send message'}
             </Button>
           </div>
+
           {sent && (
             <p className="font-[family-name:var(--font-mono)] text-[12px] text-[var(--accent)] mt-3 flex items-center gap-1.5">
-              ✓ Thank you for reaching out through Mohammed Zeeshan&apos;s portfolio. Your message has been received, and we will be looking forward to helping you.
+              ✓ Message sent.
             </p>
           )}
+
           {error && (
             <p className="font-[family-name:var(--font-mono)] text-[12px] text-red-400 mt-3 flex items-center gap-1.5">
               ✕ {error}
