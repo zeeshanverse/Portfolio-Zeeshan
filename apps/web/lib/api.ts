@@ -1,5 +1,5 @@
 const DIRECT_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001/v1'
-const BASE_URL = typeof window === 'undefined' ? DIRECT_BASE_URL : '/api/backend'
+const BASE_URL = DIRECT_BASE_URL
 const DEFAULT_TIMEOUT_MS = 5000
 
 export class Api {
